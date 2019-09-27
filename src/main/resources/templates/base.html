@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="head(title,cssPaths,jsPaths)">
+
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <title th:text="${title}"></title>
+    <link th:href="@{/frame/lib/layui-v2.5.4/css/layui.css}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/frame/css/public.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/frame/lib/layExt/thrids/soul-table/soulTable.css"/>
+    <link rel="stylesheet" type="text/css" href="/frame/lib/layExt/thrids/soul-table/animate.min.css"/>
+
+    <script type="text/javascript" src="/frame/js/jquery.min.js"></script>
+    <script src="/frame/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/frame/echarts-4.2.1/lib/public.js"></script>
+    <script type="text/javascript" src="/frame/lib/layExt/thrids/loading/loading.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" th:if="${cssPaths!=null}"
+          th:each="cssPath,status:${#strings.setSplit(cssPaths,',')}" th:href="@{${cssPath}}"/>
+
+    <script language="javascript" type="text/javascript" th:if="${jsPaths!=null}"
+            th:each="jsPath,status:${#strings.setSplit(jsPaths,',')}" th:src="@{${jsPath}}"></script>
+
+    <script type="text/javascript">
+        var contextPath = "";
+    </script>
+
+
+</head>
+<body>
+    <h1>母版视图</h1>
+    <br/>  <br/><br/><br/><br/>
+
+    <div class="layuimini-container">
+        <div class="layuimini-main">
+
+            <p>子视图 start</p>
+            <div layout:fragment="content">
+
+            </div>
+            <p>子视图 end</p>
+        </div>
+    </div>
+</body>
+</html>

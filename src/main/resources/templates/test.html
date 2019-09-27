@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{base.html}">
+
+
+<head th:replace="base::head('haha',
+                            'css1,css2',
+                            'js1,js2')">
+</head>
+
+<body>
+    <div layout:fragment="content">
+        子页面
+    </div>
+</body>
+</html>
